@@ -30,7 +30,11 @@ SECRET_KEY = 'django-insecure-u#+yi5+$wrz6tgd-smi2$_ab^a*v=le-$_(p9b3nqlxj=n2^6p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "loan-management-system-oxhv.onrender.com",  
+]
 
 load_dotenv()
 
