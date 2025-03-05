@@ -400,3 +400,8 @@ class AdminDeleteLoanView(APIView):
         loan = get_object_or_404(Loan, loan_id=loan_id)
         loan.delete()
         return Response({"status": "success", "message": f"Loan {loan_id} deleted successfully."}, status=200)
+
+
+
+def home_view(request):
+    return JsonResponse({"message": "Welcome to Loan Management System API"})
