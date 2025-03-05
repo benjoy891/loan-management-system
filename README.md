@@ -38,7 +38,7 @@ Main url -> https://loan-management-system-oxhv.onrender.com
 | PATCH  | `/api/loanForeclose/`   | Foreclose a loan             |
 | GET    | `/api/adminView/`       | View all loans in the system |
 | GET    | `/api/adminUserView/`   | View all user loan details.  |
-| GET    | `/api/adminDeleteLoan/` | Delete loan records.         |
+| DELETE | `/api/adminDeleteLoan/` | Delete loan records.         |
 
 Email Service running on -> https://email-service-4phn.onrender.com/send-otp
 
