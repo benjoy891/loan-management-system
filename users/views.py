@@ -1,5 +1,6 @@
 from itertools import count
 from django.forms import ValidationError
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 from rest_framework import status, generics
 from rest_framework_simplejwt.authentication import JWTAuthentication
