@@ -1,7 +1,3 @@
-Here is the content in a more presentable format:
-
----
-
 # Loan Management System
 
 ## Overview
@@ -138,7 +134,3 @@ This project is deployed on **Render**.
 ## Contact
 
 For inquiries, reach out to [benjoybj891@gmail.com](mailto:benjoybj891@gmail.com) or visit the project repository on [GitHub](https://github.com/yourusername/loan-management-system).
-
----
-
-This should now be in a more readable and presentable format.
