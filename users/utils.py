@@ -36,7 +36,7 @@ def generate_otp():
 
 
 def send_otp_email(email, otp):
-    url = "http://127.0.0.1:5000/send-otp"  # Node.js service URL
+    url = "https://your-otp-service.onrender.com/send-otp"  # Node.js service URL
     payload = {"email": email, "otp": otp}
     
     try:
