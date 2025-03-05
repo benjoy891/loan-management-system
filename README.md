@@ -21,6 +21,28 @@ The **Loan Management System** is a Django-based web application that provides a
 - **Database**: PostgreSQL (Preferred) or MongoDB (Optional with Djongo)
 - **Deployment**: Render (Free Tier)
 
+## Deployment
+
+This project is deployed on **Render**.
+## Links :
+Main url -> https://loan-management-system-oxhv.onrender.com 
+
+| Method | Endpoint                | Description                  |
+| ------ | ----------------------- | ---------------------------- |
+| POST   | `/api/register/`        | Register a new user          |
+| POST   | `/api/verifyOtp/`       | Verify OTP                   |
+| POST   | `/api/login/`           | User login                   |
+| POST   | `/api/adminLogin/`      | Admin login                  |
+| POST   | `/api/loanCreate/`      | Create a new loan            |
+| GET    | `/api/loans/`           | Get loan details             |
+| PATCH  | `/api/loanForeclose/`   | Foreclose a loan             |
+| GET    | `/api/adminView/`       | View all loans in the system |
+| GET    | `/api/adminUserView/`   | View all user loan details.  |
+| GET    | `/api/adminDeleteLoan/` | Delete loan records.         |
+
+Email Service running on -> https://email-service-4phn.onrender.com/send-otp
+
+
 ## Installation
 
 ### **Prerequisites**
@@ -96,9 +118,7 @@ npm install
 node emailService.js
 ```
 
-## Deployment
 
-This project is deployed on **Render**.
 
 ### Running on Render:
 
@@ -112,18 +132,6 @@ python manage.py migrate && gunicorn loan_management.wsgi:application
 
 ## python manage.py migrate && python manage.py createsuperuser --noinput --username admin && gunicorn loan\_management.wsgi\:applicationAPI Endpoints
 
-| Method | Endpoint                | Description                  |
-| ------ | ----------------------- | ---------------------------- |
-| POST   | `/api/register/`        | Register a new user          |
-| POST   | `/api/verifyOtp/`       | Verify OTP                   |
-| POST   | `/api/login/`           | User login                   |
-| POST   | `/api/adminLogin/`      | Admin login                  |
-| POST   | `/api/loanCreate/`      | Create a new loan            |
-| GET    | `/api/loans/`           | Get loan details             |
-| PATCH  | `/api/loanForeclose/`   | Foreclose a loan             |
-| GET    | `/api/adminView/`       | View all loans in the system |
-| GET    | `/api/adminUserView/`   | View all user loan details.  |
-| GET    | `/api/adminDeleteLoan/` | Delete loan records.         |
 
 ## Troubleshooting
 
