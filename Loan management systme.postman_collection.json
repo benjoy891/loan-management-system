@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "d389f158-ad8b-4b0d-91b6-c5ef75d307de",
+		"name": "Loan management systme",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40249405"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"test2\",\n  \"first_name\": \"abd\",\n  \"last_name\": \"deg\",\n  \"email\": \"benjoybj891@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{render_url}}api/register/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OTP verify",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMjAxMzczLCJpYXQiOjE3NDExOTk1NzMsImp0aSI6IjNjMjljY2Y3NDliNjQ2ZjQ4ZDgwZmIwMThjYThiNTczIiwidXNlcl9pZCI6OH0.xEb0rFQ8YgrkgJ9Vs_VbyTq0om0uXN3uxqiTSftwMH8"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"otp\": 3841\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{render_url}}api/verifyOtp/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"verifyOtp",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"test2\"\n}\n//Can also use \"email\" to login",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{render_url}}api/login/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Loan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 2000,\n  \"tenure\": 4,\n  \"interest_rate\": 10\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{render_url}}api/loanCreate/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"loanCreate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all loans info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{render_url}}api/loans/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"loans",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payement schedule for loan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{render_url}}api/loans?loan_id=LOAN001",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"loans"
+							],
+							"query": [
+								{
+									"key": "loan_id",
+									"value": "LOAN001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Foreclose a Loan",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{user_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"loan_id\": \"LOAN001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{render_url}}api/loanForeclose/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"loanForeclose",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"benjoy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{render_url}}api/adminLogin/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"adminLogin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Loan Details (Admin)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{render_url}}api/adminView/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"adminView",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Loan (Admin)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"loan_id\": \"LOAN001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{render_url}}api/adminDeleteLoan/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"adminDeleteLoan",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User loan details(Admin)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{admin_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Thunder Client (https://www.thunderclient.com)",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{render_url}}api/adminUserView/",
+							"host": [
+								"{{render_url}}api"
+							],
+							"path": [
+								"adminUserView",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "render_url",
+			"value": "https://loan-management-system-oxhv.onrender.com/",
+			"type": "default"
+		},
+		{
+			"key": "user_token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMjAxNTE4LCJpYXQiOjE3NDExOTk3MTgsImp0aSI6IjI0NjA4N2IzYzA3MzQ4MGQ4MDU1ZTYzMWNhZTZjYjhjIiwidXNlcl9pZCI6OCwicm9sZSI6InVzZXIifQ.oSLibogH6mGE6YolK-Y-FIABTNRpaTY0uSvyFyau3mQ",
+			"type": "default"
+		},
+		{
+			"key": "admin_token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMjAxODMxLCJpYXQiOjE3NDEyMDAwMzEsImp0aSI6IjRlMWY5N2I1ZjIwYTQ4YTRiZDhkODVjNzIwMTUwNjBhIiwidXNlcl9pZCI6Niwicm9sZSI6ImFkbWluIn0.l5irNjB_u8KB-CIGFWyGDT3OMY91tDLRWaKxhnuiX8c",
+			"type": "default"
+		}
+	]
+}
